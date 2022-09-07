@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <title>View</title>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav><%- include("../partials/nav") %></nav>
+    <section class="container mt-5">
+      <div class="row">
+        <div class="col">
+          <div>
+            <div class="display-6 mt-3">
+              <p>"<%= article.title %>"</p>
+            </div>
+            <div>
+              <p>
+                Author:
+                <span class="fw-bold fst-italic"><%= article.author %></span>
+              </p>
+            </div>
+            <div>
+              <p>Article ID: <span class="fw-bold"><%= article.id %></span></p>
+            </div>
+            <div>
+              <p>
+                Article Order: <span class="fw-bold"><%= article.order %></span>
+              </p>
+            </div>
+            <div>
+              <p><%= article.description %></p>
+            </div>
+            <div>
+              <p><%= article.content %></p>
+            </div>
+            <div>
+              <p>
+                Completed:
+                <span class="fw-bold">
+                  <% if (article.completed === "on" || article.completed ===
+                  true) { %> Yes <% } else { %> No <% } %></span
+                >
+              </p>
+            </div>
+            <div>
+              <a class="btn btn-primary" href="/gallery">Back to Gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="mt-auto"><%- include("../partials/footer") %></footer>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

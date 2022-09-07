@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <title>Document</title>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav><%- include("../partials/nav") %></nav>
+    <section class="container mt-5">
+      <div class="row">
+        <div class="col">
+          <div>
+            <p class="display-5">Error</p>
+            <p class="display-7">Something went wrong.</p>
+            <div>
+              <a class="btn btn-primary" href="/">Back to Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="mt-auto"><%- include("../partials/footer") %></footer>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

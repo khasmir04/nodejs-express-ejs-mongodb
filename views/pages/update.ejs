@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/public/css/custom-style.css" />
+    <title>Add Article</title>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav><%- include("../partials/nav") %></nav>
+
+    <section class="container mb-5">
+      <div class="row">
+        <div class="col">
+          <div class="pt-3">
+            <div class="display-4">
+              <p>Update the Article</p>
+            </div>
+            <form
+              class="mt-3"
+              action="/gallery/<%= article.id %>/update?_method=PUT"
+              method="POST"
+            >
+              <div class="form-group">
+                <label for="inputId">ID:</label>
+                <input
+                  name="id"
+                  type="number"
+                  class="form-control"
+                  id="inputId"
+                  value="<%=article.id %>"
+                  disabled
+                />
+                <div class="form-group mt-3">
+                  <label for="inputOrder">Order:</label>
+                  <input
+                    name="order"
+                    type="number"
+                    class="form-control"
+                    id="inputOrder"
+                    value="<%= article.order %>"
+                    disabled
+                  />
+                  <small class="form-text text-muted"
+                    >Order number should be the same as ID number.</small
+                  >
+                </div>
+                <div class="form-group mt-3">
+                  <label for="inputTitle">Title:</label>
+                  <input
+                    name="title"
+                    type="Text"
+                    class="form-control"
+                    id="inputTitle"
+                    value="<%= article.title %>"
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="inputAuthor">Author:</label>
+                  <input
+                    name="author"
+                    type="Text"
+                    class="form-control"
+                    id="inputAuthor"
+                    value="<%= article.author %>"
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="inputShortDesc"
+                    >Short description about the article:</label
+                  >
+                  <input
+                    name="description"
+                    type="Text"
+                    class="form-control"
+                    id="inputShortDesc"
+                    value="<%= article.description %>"
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="inputArticle">Article Content:</label>
+                  <textarea
+                    name="content"
+                    type="text"
+                    class="form-control"
+                    id="inputArticle"
+                  >
+<%= article.content %></textarea
+                  >
+                </div>
+                <div class="form-check mt-3">
+                  <% if (article.completed === "on") { %>
+                  <input
+                    name="completed"
+                    type="checkbox"
+                    class="form-check-input"
+                    id="completion"
+                    checked
+                  />
+                  <% } else { %>
+                  <input
+                    name="completed"
+                    type="checkbox"
+                    class="form-check-input"
+                    id="completion"
+                  />
+                  <% } %>
+                  <label class="form-check-label" for="exampleCheck1"
+                    >Completed?
+                  </label>
+                </div>
+                <div class="form-check mt-4>
+                <label for="myfile">Attachment: <%= article.imageSrc %></label>
+                <input
+                  class="d-block mt-2"
+                  type="file"
+                  id="myfile"
+                  name="image"
+                />
+              </div>
+
+              <button
+                name="submitButton"
+                value="<% article.id %>"
+                href="/gallery/<%= article.id %>"
+                type="submit"
+                class="btn btn-primary mt-3"
+              >
+                Update
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-auto"><%- include("../partials/footer") %></footer>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

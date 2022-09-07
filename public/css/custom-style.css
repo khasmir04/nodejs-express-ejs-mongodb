@@ -1,0 +1,13 @@
+.hero {
+  background-image: url("../img/article.jpg");
+  background-size: 100%;
+  height: calc(100vh - 152px);
+  filter: blur(4px);
+}
+
+.order {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: black;
+}

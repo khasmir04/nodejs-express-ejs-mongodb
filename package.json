@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-hands-on-2",
+  "version": "1.0.0",
+  "description": "Node JS Hands On 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "author": "Jullie Angeli Morales",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "dotenv": "^16.0.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.5.4",
+    "nodemon": "^2.0.19"
+  }
+}

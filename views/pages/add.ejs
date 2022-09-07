@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/public/css/custom-style.css" />
+    <title>Add Article</title>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav><%- include("../partials/nav") %></nav>
+
+    <section class="container mb-5">
+      <div class="row">
+        <div class="col">
+          <div class="pt-3">
+            <div class="display-4">
+              <p>Create a New Article</p>
+            </div>
+            <form class="mt-3" action="/gallery/create" method="POST">
+              <div class="form-group">
+                <label for="inputId">ID:</label>
+                <input
+                  name="id"
+                  type="number"
+                  class="form-control"
+                  id="inputId"
+                  placeholder="Enter ID no. here"
+                />
+                <div class="form-group mt-3">
+                  <label for="inputOrder">Order:</label>
+                  <input
+                    name="order"
+                    type="number"
+                    class="form-control"
+                    id="inputOrder"
+                    placeholder="Enter order no. here"
+                  />
+                  <small id="emailHelp" class="form-text text-muted"
+                    >Order number should be the same as ID number.</small
+                  >
+                </div>
+                <div class="form-group mt-3">
+                  <label for="inputTitle">Title:</label>
+                  <input
+                    name="title"
+                    type="Text"
+                    class="form-control"
+                    id="inputTitle"
+                    placeholder="Enter title here"
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="inputAuthor">Author:</label>
+                  <input
+                    name="author"
+                    type="Text"
+                    class="form-control"
+                    id="inputAuthor"
+                    placeholder="Enter author name here"
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="inputShortDesc"
+                    >Short description about the article:</label
+                  >
+                  <input
+                    name="description"
+                    type="Text"
+                    class="form-control"
+                    id="inputShortDesc"
+                    placeholder="Enter short description here"
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="inputArticle">Article Content:</label>
+                  <textarea
+                    name="content"
+                    type="text"
+                    class="form-control"
+                    id="inputArticle"
+                    placeholder="Enter content here"
+                  ></textarea>
+                </div>
+                <div class="form-check mt-3">
+                  <input
+                    name="completed"
+                    type="checkbox"
+                    class="form-check-input"
+                    id="completion"
+                  />
+                  <label class="form-check-label" for="exampleCheck1"
+                    >Completed?</label
+                  >
+                </div>
+                <div class="form-check mt-3>
+                <label for="myfile">Upload a photo:</label>
+                <input type="file" id="myfile" name="image" />
+              </div>
+              <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-auto"><%- include("../partials/footer") %></footer>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <title>View</title>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav><%- include("../partials/nav") %></nav>
+    <section class="container mt-5">
+      <div class="row">
+        <div class="col">
+          <div class="mt-5">
+            <div>
+              <img src="<%= article.imageSrc %>" alt="" />
+            </div>
+            <div class="display-6">
+              <p>"<%= article.title %>"</p>
+            </div>
+            <div>
+              <p>
+                Author:
+                <span class="fw-bold fst-italic fs-5"
+                  ><%= article.author %></span
+                >
+              </p>
+            </div>
+            <div>
+              <p>Article ID: <span class="fw-bold"><%= article.id %></span></p>
+            </div>
+            <div>
+              <p>
+                Article Order: <span class="fw-bold"><%= article.order %></span>
+              </p>
+            </div>
+            <div>
+              <p>
+                Short Description:
+                <span class="fst-italic fw-bold"
+                  >"<%= article.description %>"</span
+                >
+              </p>
+            </div>
+            <div>
+              <p>Content:</p>
+              <p class="fst-italic fw-bold"><%= article.content %></p>
+            </div>
+            <div>
+              <p>
+                Completed: <% if (article.completed === "on") { %>
+                <span class="fw-bold">Yes</span>
+                <% } else { %>
+                <span class="fw-bold">No</span>
+                <% } %>
+              </p>
+            </div>
+            <a class="btn btn-outline-primary" href="/gallery"
+              >Back to Gallery</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="mt-auto"><%- include("../partials/footer") %></footer>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
