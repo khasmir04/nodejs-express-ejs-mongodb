@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
-    <title>View</title>
+    <link rel="stylesheet" href="/css/custom-style.css" />
+    <title>Added Article</title>
   </head>
   <body class="d-flex flex-column min-vh-100">
     <nav><%- include("../partials/nav") %></nav>
@@ -49,7 +50,7 @@
             </div>
             <div>
               <p>
-                Completed: <% if (article.completed === "on") { %>
+                Completed: <% if (article.completed === true) { %>
                 <span class="fw-bold">Yes</span>
                 <% } else { %>
                 <span class="fw-bold">No</span>

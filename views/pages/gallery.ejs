@@ -6,133 +6,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="/css/custom-style.css" />
-    <title>Document</title>
+    <title>Articles</title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <nav><%- include("../partials/nav") %></nav>
     <section class="container p-5">
       <div class="row">
-        <div class="col">
-          <div class="ms-3">
-            <a class="btn btn-outline-primary" href="/gallery/create"
-              >Add a New Article</a
-            >
-          </div>
-        </div>
+        <div class="col"></div>
       </div>
       <div class="row">
         <div class="col">
-          <div class="d-flex flex-wrap">
-            <% articles.forEach((article) => { %>
-            <div class="p-3 col-3">
-              <div class="card">
-                <img src="<%= article.imageSrc %>" alt="" />
-                <h4 class="text-center mt-2">"<%= article.title %>"</h4>
-                <p class="text-center">
-                  <%= article.completed ? "Done " : "In-progress" %>
-                </p>
-                <p class="badge rounded-pill bg-light order">
-                  <%= article.order %>
-                </p>
-                <div class="card-body">
-                  <p class="card-title">
-                    Author:
-                    <span class="fw-bold"><%= article.author %></span>
+          <div>
+            <% if(articles.length > 0) { %>
+            <div class="ms-3">
+              <a class="btn btn-outline-primary" href="/gallery/create"
+                >Add a New Article</a
+              >
+            </div>
+            <div class="d-flex flex-wrap">
+              <% articles.forEach((article) => { %>
+              <div class="p-3 col-3">
+                <div class="card">
+                  <img src="<%= article.imageSrc %>" alt="" />
+                  <h4 class="text-center mt-2">"<%= article.title %>"</h4>
+                  <p class="text-center">
+                    <%= article.completed ? "Done " : "In-progress" %>
                   </p>
-                  <p>
-                    Article ID: <span class="fw-bold"><%= article.id %></span>
+                  <p class="badge rounded-pill bg-light order">
+                    <%= article.order %>
                   </p>
-                  <p>"<%= article.description %>"</p>
-                </div>
-                <div class="row justify-content-center mb-3 px-3">
-                  <div class="col">
-                    <div>
-                      <a
-                        class="btn btn-info"
-                        href="/gallery/<%= article._id %>"
-                      >
-                        Read</a
-                      >
-                    </div>
+                  <div class="card-body">
+                    <p class="card-title">
+                      Author:
+                      <span class="fw-bold"><%= article.author %></span>
+                    </p>
+                    <p>
+                      Article ID: <span class="fw-bold"><%= article.id %></span>
+                    </p>
+                    <p>"<%= article.description %>"</p>
                   </div>
-                  <div class="col-auto">
-                    <div>
-                      <a
-                        class="btn btn-primary"
-                        href="/gallery/<%= article.id %>/update"
-                        >Edit</a
-                      >
+                  <div class="row justify-content-center mb-3 px-3">
+                    <div class="col">
+                      <div>
+                        <a
+                          class="btn btn-info"
+                          href="/gallery/<%= article.id %>"
+                        >
+                          Read</a
+                        >
+                      </div>
                     </div>
-                  </div>
-                  <div class="col">
-                    <div>
-                      <button
-                        type="button"
-                        class="btn btn-danger"
-                        data-bs-toggle="modal"
-                        data-bs-target="#deleteModal<%= article.id %>"
-                      >
-                        Delete
-                      </button>
+                    <div class="col-auto">
+                      <div>
+                        <a
+                          class="btn btn-primary"
+                          href="/gallery/<%= article.id %>/update"
+                          >Edit</a
+                        >
+                      </div>
                     </div>
-                  </div>
-                </div>
-
-                <!-- Modal -->
-                <div
-                  class="modal fade"
-                  id="deleteModal<%= article.id %>"
-                  tabindex="-1"
-                  role="dialog"
-                  aria-labelledby="deleteModalLabel"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">
+                    <div class="col">
+                      <div>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          data-bs-toggle="modal"
+                          data-bs-target="#deleteModal<%= article.id %>"
+                        >
                           Delete
-                        </h5>
-                        <button
-                          type="button"
-                          class="close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        >
-                          <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body">
-                        Proceed in deleting the article "<%= article.title %>"?
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                        <form
-                          action="/gallery/<%= article.id %>/delete?_method=DELETE"
-                          method="POST"
-                        >
-                          <button type="submit" class="btn btn-primary">
-                            Proceed
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="deleteModal<%= article.id %>"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="deleteModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deleteModalLabel">
+                            Delete
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
                           </button>
-                        </form>
+                        </div>
+                        <div class="modal-body">
+                          Proceed in deleting the article "<%= article.title
+                          %>"?
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <form
+                            action="/gallery/<%= article.id %>/delete?_method=DELETE"
+                            method="POST"
+                          >
+                            <button type="submit" class="btn btn-primary">
+                              Proceed
+                            </button>
+                          </form>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <% }); %>
             </div>
-            <% }); %>
+            <% } else { %>
+            <div
+              class="d-flex justify-content-center align-items-center flex-column"
+            >
+              <div>
+                <img src="/img/articlelogo.png" alt="" />
+              </div>
+              <h1>Looks like you haven't added an article yet.</h1>
+              <div class="ms-3">
+                <a class="btn btn-outline-primary" href="/gallery/create"
+                  >Add a New Article</a
+                >
+              </div>
+            </div>
+            <% } %>
           </div>
         </div>
       </div>
     </section>
-    <footer><%- include("../partials/footer") %></footer>
+    <footer class="mt-auto"><%- include("../partials/footer") %></footer>
     <script src="/bootstrap/js/bootstrap.bundle.js"></script>
   </body>
 </html>
